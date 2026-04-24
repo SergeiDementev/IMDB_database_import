@@ -1,6 +1,7 @@
 import functions
 import psycopg
 import os
+from dotenv import load_dotenv
 
 # IMPORT AND UNPACK FROM IMDB_old:
 
@@ -13,11 +14,13 @@ functions.unpack_gz(path, new_path)
 
 # IMPORT TO POSTGRESQL:
 
+load_dotenv()
+
 try:
     connection = psycopg.connect(
-        dbname="imdb_test",
+        dbname=os.getenv('dbname'),
         user="postgres",
-        password="1294",
+        password=os.getenv('password'),
         host="localhost",
         port="5432",
     )
@@ -56,6 +59,7 @@ try:
 
 except Exception as e:
     print(f"Ooops: {e}")
+
 
 #DELETE PACKED AND UNPACKED FILES FROM DIRECTORY:
 
