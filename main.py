@@ -3,7 +3,7 @@ import psycopg
 import os
 from dotenv import load_dotenv
 
-# IMPORT AND UNPACK FROM IMDB_old:
+# IMPORT AND UNPACK FROM IMDB:
 
 url = 'https://datasets.imdbws.com/name.basics.tsv.gz'
 path = 'c:/FOREIGN/test/name.basics.tsv.gz'
